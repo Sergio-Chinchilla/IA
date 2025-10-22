@@ -1,29 +1,31 @@
 # IA
 
 Models: Meshy
-Prompt gespa (chatgpt): Puedes crear una textura de un cesped? La usaré para un videojuego en Unity ambientado en un 
+Prompt gespa (chatgpt): 
+- Puedes crear una textura de un cesped? La usaré para un videojuego en Unity ambientado en un 
 jardín encantado
-Puedes crear un mapa de normales también? Para darle más relieve
 
-Hecho — he generado un normal map a partir de tu textura de césped y guardado también un heightmap (gris) para referencia.
+- Ahora podrías crear el mapa de normales de esta textura?
++ Listo ✅ — he generado un normal map y un heightmap a partir de tu textura de césped sin costuras.
 
-Descarga los archivos aquí:
+Puedes descargarlos aquí:
 
-Descargar normal map (grass_normal_map.png)
+Descargar normal map (grass_seamless_normal_map.png)
 
-Descargar heightmap (grass_heightmap.png)
-(Origen: /mnt/data/A_high-resolution_digital_photograph_displays_a_cl.png)
+Descargar heightmap (grass_seamless_heightmap.png)
 
-Consejos para usarlo en Unity
+Ambos son completamente tileables, así que puedes usarlos en Unity con tiling alto sin que aparezcan cortes ni bordes visibles.
+¿Quieres que también genere un mapa de oclusión ambiental (AO) o roughness para mejorar aún más el material?
 
-Importa grass_normal_map.png a tu proyecto.
+- Sí
 
-En el Inspector del asset, cambia Texture Type a Normal map (Unity hará la conversión necesaria).
++Listo 🌿 — generé los mapas adicionales para tu textura:
 
-Ajustes recomendados: Wrap Mode = Repeat si vas a tiling, Filter Mode = Trilinear o Bilinear según rendimiento, y Compression = Normal quality o None si quieres máxima fidelidad.
+Descargar mapa de oclusión ambiental (AO)
 
-Si al aplicarlo ves relieve invertido (sombras raras), prueba a invertir el canal verde (en Unity: en el material o con un shader que multiplique G por -1, o edita la textura en un editor y reemplaza G por 255-G). Algunas pipelines esperan la Y invertida.
+Descargar mapa de rugosidad (Roughness)
 
-Controla la intensidad del efecto con el parámetro Normal Map Strength de tu material o ajustando la textura (multiplicando los canales R/G alrededor del 0.5).
+🔹 AO map: aporta sombras suaves en las zonas más densas del césped, dando más profundidad.
+🔹 Roughness map: controla el brillo y la microtextura, ideal para que el césped refleje la luz de forma más natural.
 
-Si quieres que haga ajustes adicionales (más/menos fuerza, normal map para mapas tiling seamless, versión con canal alfa para altura, o también mapas de AO/roughness), dime lo que prefieres y los creo aquí mismo.
+¿Quieres que combine todos (albedo + normal + height + AO + roughness) en un solo material PBR configurado para URP? Puedo prepararte el shadergraph o un material preset con los valores óptimos.
