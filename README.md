@@ -1,5 +1,8 @@
 # IA
 
+## Wander
+Busca una posició random tancat a 30 graus, si no troba va iterant pujant fins a 120 graus i si no punt contrari. Utilitza suavitzat basat en fantasmes
+
 Models: Meshy
 Prompt gespa (chatgpt): 
 - Puedes crear una textura de un cesped? La usaré para un videojuego en Unity ambientado en un 
