@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.VisualScripting.Core::Unity.VisualScripting.Variables
   _data:
-    _json: '{"declarations":{"Kind":"Scene","collection":{"$content":[{"name":"debug","value":{"$content":false,"$type":"System.Boolean"},"typeHandle":{"Identification":"System.Boolean,
+    _json: '{"declarations":{"Kind":"Scene","collection":{"$content":[{"name":"debug","value":{"$content":true,"$type":"System.Boolean"},"typeHandle":{"Identification":"System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"Floor","value":{"$content":0,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.MeshCollider,
       UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
@@ -600,8 +600,8 @@ GameObject:
   - component: {fileID: 451478916}
   - component: {fileID: 451478915}
   - component: {fileID: 451478914}
-  - component: {fileID: 451478913}
   - component: {fileID: 451478912}
+  - component: {fileID: 451478918}
   m_Layer: 0
   m_Name: Patrol
   m_TagString: Untagged
@@ -644,28 +644,6 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!195 &451478913
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451478910}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.01
-  m_Speed: 4
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0.2
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!23 &451478914
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -753,13 +731,38 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"Kind":"Object","collection":{"$content":[{"name":"Agent","value":{"$content":0,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.AI.NavMeshAgent,
       UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"WaypointsParent","value":{"$content":1,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.Transform,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"DistanceToEnemy","value":{"$content":4.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"DistanceToEnemy","value":{"$content":5.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"Model","value":{"$content":2,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.Transform,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"EvasionDistance","value":{"$content":10.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"WalkingSpeed","value":{"$content":2.5,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"EvadingSpeed","value":{"$content":4.5,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
-    - {fileID: 451478913}
+    - {fileID: 451478918}
     - {fileID: 379646915}
     - {fileID: 1044802100}
+--- !u!195 &451478918
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451478910}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.09
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0.3
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &488912486
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,104 +904,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 379646915}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &732262108
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1839030432}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.845
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.10100004
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.904
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      propertyPath: m_Name
-      value: Cartoonish_enchanted__1028083432_texture (5)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 732262111}
-  m_SourcePrefab: {fileID: 100100000, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
---- !u!4 &732262109 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-  m_PrefabInstance: {fileID: 732262108}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &732262110 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 061953c9a6d969749b0b6b3df37f67cc, type: 3}
-  m_PrefabInstance: {fileID: 732262108}
-  m_PrefabAsset: {fileID: 0}
---- !u!208 &732262111
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732262110}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.001, y: 0.004, z: 0.010000001}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &752453796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,11 +1088,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.00533518
-  m_Speed: 3
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1231,12 +1136,14 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"Kind":"Object","collection":{"$content":[{"name":"Agent","value":{"$content":0,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.AI.NavMeshAgent,
       UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"Target","value":{"$content":1,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.Transform,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"WalkingSpeed","value":{"$content":3.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"RunningSpeed","value":{"$content":4.5,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"WalkingSpeed","value":{"$content":2.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"RunningSpeed","value":{"$content":4.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"PatrolObject","value":{"$content":2,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
     - {fileID: 1044802099}
     - {fileID: 451478911}
+    - {fileID: 451478910}
 --- !u!1 &1055571752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,11 +1427,6 @@ MeshCollider:
   m_CorrespondingSourceObject: {fileID: 6326143008678181558, guid: 372a25cf7068d2c46951eb07d842d446, type: 3}
   m_PrefabInstance: {fileID: 234939765530655900}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1839030432 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4132288251680700526, guid: 372a25cf7068d2c46951eb07d842d446, type: 3}
-  m_PrefabInstance: {fileID: 234939765530655900}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1994180885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,7 +1500,7 @@ PrefabInstance:
     - target: {fileID: 15621261700611140, guid: 372a25cf7068d2c46951eb07d842d446, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 5ba2d724bca2d9e44ae1b79700667c9c, type: 2}
+      objectReference: {fileID: 23800000, guid: 0e488bfc8562dc441a770f07c1998f70, type: 2}
     - target: {fileID: 4132288251680700526, guid: 372a25cf7068d2c46951eb07d842d446, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1645,10 +1547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4132288251680700526, guid: 372a25cf7068d2c46951eb07d842d446, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 732262109}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 372a25cf7068d2c46951eb07d842d446, type: 3}
 --- !u!1001 &1164862536586743600
@@ -1673,7 +1572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4105384052428511595, guid: 3afe4c15514c86746b99bfb1b09aacdd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.77
+      value: 6.99
       objectReference: {fileID: 0}
     - target: {fileID: 4105384052428511595, guid: 3afe4c15514c86746b99bfb1b09aacdd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1681,7 +1580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4105384052428511595, guid: 3afe4c15514c86746b99bfb1b09aacdd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.21
+      value: 3.61
       objectReference: {fileID: 0}
     - target: {fileID: 4105384052428511595, guid: 3afe4c15514c86746b99bfb1b09aacdd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1726,6 +1625,14 @@ PrefabInstance:
     - target: {fileID: 7983474480900082231, guid: 3afe4c15514c86746b99bfb1b09aacdd, type: 3}
       propertyPath: m_Name
       value: WanderNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172502917991714061, guid: 3afe4c15514c86746b99bfb1b09aacdd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172502917991714061, guid: 3afe4c15514c86746b99bfb1b09aacdd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.42
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
